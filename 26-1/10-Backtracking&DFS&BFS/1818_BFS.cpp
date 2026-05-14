@@ -1,0 +1,60 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <queue>
+
+using namespace std;
+
+vector<int> adj[101];
+bool visit[101];
+
+void bfs(int start) {
+    queue<int> q;
+
+    q.push(start);
+    
+    visit[start] = true;
+
+    while (!q.empty()) {
+        int cur = q.front();
+        q.pop();
+
+        for (int next : adj[cur]) {
+            if (!visit[next]) {
+                visit[next] = true;
+                q.push(next);
+            }
+        }
+    }
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n, m, u, v;
+    int cnt = 0;
+
+    cin >> n >> m;
+
+    for (int i = 1; i <= m; i++) {
+        cin >> u >> v;
+
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    for (int i = 1; i <= n; i++) {
+        sort(adj[i].begin(), adj[i].end());
+    }
+
+    bfs(1);
+
+    for (int i = 2; i <= n; i++) {
+        if (visit[i]) ++cnt;
+    }
+
+    cout << cnt;
+
+    return 0;
+}
