@@ -27,11 +27,9 @@ int main() {
         pre = num;
     }
 
-    if(m == 0) res *= dp[n];
-    else if(pre != m) res *= dp[n - pre];
+    res *= dp[n - pre];
 
-    if(res == 0) cout << 1;
-    else cout << res;
+    cout << res;
 
     return 0;
 }
