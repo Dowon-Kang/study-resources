@@ -15,12 +15,12 @@ void bfs(int start) {
     
     visit[start] = true;
 
-    while (!q.empty()) {
+    while(!q.empty()) {
         int cur = q.front();
         q.pop();
 
-        for (int next : adj[cur]) {
-            if (!visit[next]) {
+        for(int next : adj[cur]) {
+            if(!visit[next]) {
                 visit[next] = true;
                 q.push(next);
             }
@@ -37,21 +37,21 @@ int main() {
 
     cin >> n >> m;
 
-    for (int i = 1; i <= m; i++) {
+    for(int i = 1; i <= m; i++) {
         cin >> u >> v;
 
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
 
-    for (int i = 1; i <= n; i++) {
+    for(int i = 1; i <= n; i++) {
         sort(adj[i].begin(), adj[i].end());
     }
 
     bfs(1);
 
-    for (int i = 2; i <= n; i++) {
-        if (visit[i]) ++cnt;
+    for(int i = 2; i <= n; i++) {
+        if(visit[i]) ++cnt;
     }
 
     cout << cnt;

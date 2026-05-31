@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// vector<int>를 원소로 가지는 배열 101개
 vector<int> adj[101];
 bool visit[101];
 
@@ -20,6 +21,7 @@ int main() {
     cin.tie(NULL);
 
     int n, m, u, v;
+    // u, v : 노드
     int cnt = 0;
 
     cin >> n >> m;

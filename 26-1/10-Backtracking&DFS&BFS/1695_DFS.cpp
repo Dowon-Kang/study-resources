@@ -8,6 +8,7 @@ using namespace std;
 int board[26][26];
 bool visit[26][26];
 int n;
+// 방향성 : 상, 하, 좌, 우
 int dr[] = {-1, 1, 0, 0};
 int dc[] = {0, 0, -1, 1};
 
